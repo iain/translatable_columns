@@ -1,13 +1,11 @@
-TranslatableColumns
-===================
+h1. TranslatableColumns
 
 
 TranslatableColumns is a Ruby on Rails plugin, providing localization for model attributes.
 
 
 
-Installing
-==========
+h2. Installing
 
 1. First make sure you’re running Rails >= 2.2 or edge:
    
@@ -23,8 +21,7 @@ Installing
        
 
 
-Usage
-=====
+h2. Usage
 
 Identify the columns you want to translate:
 
@@ -43,8 +40,7 @@ Create a form like this:
 And it will save to whatever locale is set in I18n. No hard feelings, nothing to worry about.
 
 
-Validating
-==========
+h2. Validating
 
 Validation is of course built in. If you want to validate the presence of at least one of the translations, just call validates_translation_of:
 
@@ -54,7 +50,8 @@ Validation is of course built in. If you want to validate the presence of at lea
   end
 
 This will make your record invalid when none of the translated columns exist. It works exactly as validates_presence_of, including all its options!
-Customizing
+
+h2. Customizing
 
 You can change the settings of translatable_columns on both a global level and at individual attribute level. There are two configuration options at the moment, called full_locale and use_default.
 
@@ -65,16 +62,14 @@ Set the global configuration in your environment file:
   ActiveRecord::Base.translatable_columns_config.use_default = true
 
 
-full_locale
-===========
+h3. full_locale
 
 With this option you can change which part of the locale is used in the columns. Default is false, so only the first part of the locale is expected in the column. So a title for en-US is called title_en and a title for en-GB is also called title_en. When you set full_locale to true, it uses the entire locale, substituting the hyphen with an underscore. This way a title for en-US is called title_en_us and a title for en-GB is called title_en_gb.
 
 full_locale cannot be set per attribute just now.
 
 
-use_default
-===========
+h3. use_default
 
 With this option you can specify which value will be returned automatically if no proper value has been found. Default is true, so it will try harder to find a value. It might even be a value in another language.
 
@@ -86,8 +81,7 @@ You can set this option per attribute if you’d like, to override the global co
 
 
 
-Some extras
-===========
+h2. Some extras
 
 What if the user has selected a locale which you don’t have in the database? In this case it’ll get the column belonging to the I18n.default_locale. Make sure you have a column for this locale, because you’ll be serving a nasty error if even this one isn’t present!
 
@@ -100,5 +94,5 @@ You might want to provide multiple languages for a user to fill in at once. This
   <% end %>
 
 
-
+---
 Copyright (c) 2008 Iain Hecker, released under the MIT license
