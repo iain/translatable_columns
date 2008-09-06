@@ -1,0 +1,22 @@
+TranslatableColumns
+===================
+
+Makes proxies for localized columns, depending on the locale set by I18n.
+
+Read the Rdoc for more options.
+
+Example
+=======
+
+  class Topic < ActiveRecord::Base
+    translatable_columns :title, :body
+    validates_translation_of :title
+  end
+  
+  t = Topic.new
+  I18n.locale = 'nl-NL'
+  t.title # fetches t.title_nl
+  I18n.locale = 'de-DE'
+  t.title # fetches t.title_de
+
+Copyright (c) 2008 Iain Hecker, released under the MIT license

@@ -1,0 +1,3 @@
+sqlite3:
+  :adapter: sqlite3
+  :dbfile: vendor/plugins/translatable_columns/spec/db/translatable_columns.sqlite3.db
