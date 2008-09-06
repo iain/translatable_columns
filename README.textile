@@ -55,9 +55,8 @@ h2. Customizing
 
 You can change the settings of translatable_columns on both a global level and at individual attribute level. There are two configuration options at the moment, called full_locale and use_default.
 
-Set the global configuration in your environment file:
+Set the global configuration in your environment file. These are the defaults of translatable_columns:
 
-  # These are the defaults of translatable_columns:
   ActiveRecord::Base.translatable_columns_config.full_locale = false
   ActiveRecord::Base.translatable_columns_config.use_default = true
 
