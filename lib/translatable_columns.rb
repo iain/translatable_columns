@@ -123,7 +123,7 @@ module TranslatableColumns
 
     # Returns the proper column name
     def column_locale(locale = I18n.locale)
-      translatable_columns_config.full_locale ? locale.sub('-','_').downcase : locale.split('-').first
+      translatable_columns_config.full_locale ? locale.to_s.sub('-','_').downcase : locale.to_s.split('-').first
     end
 
     # Validates presence of at least one of the localized columns.
